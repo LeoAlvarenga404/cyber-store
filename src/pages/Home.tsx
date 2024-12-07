@@ -1,7 +1,9 @@
+import { Banner } from "../components/Banner";
+
 export function Home() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="w-full">
+      <Banner />
     </div>
-  )
+  );
 }
