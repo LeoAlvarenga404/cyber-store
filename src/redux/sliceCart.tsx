@@ -1,11 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductDetailsProps } from "../components/product-card";
 
-export interface CartItem extends ProductDetailsProps {
-  count: number;
-}
 interface CartState {
-  items: CartItem[];
+  items: (ProductDetailsProps & { count: number })[];
 }
 
 const INITIAL_STATE: CartState = {
@@ -21,7 +18,8 @@ const sliceCart = createSlice({
 
       if (existingItem) {
         existingItem.count += 1;
-        existingItem.price = (existingItem.price / (existingItem.count - 1)) * existingItem.count;
+        existingItem.price =
+          (existingItem.price / (existingItem.count - 1)) * existingItem.count;
       } else {
         state.items.push({ ...payload, count: 1 });
       }
@@ -33,7 +31,8 @@ const sliceCart = createSlice({
       const existingItem = state.items.find((item) => item.id === payload);
       if (existingItem) {
         existingItem.count += 1;
-        existingItem.price = (existingItem.price / (existingItem.count - 1)) * existingItem.count;
+        existingItem.price =
+          (existingItem.price / (existingItem.count - 1)) * existingItem.count;
       }
     },
     removeItem(state, { payload }: PayloadAction<string>) {
@@ -42,7 +41,9 @@ const sliceCart = createSlice({
         if (existingItem.count <= 1) {
           state.items = state.items.filter((item) => item.id !== payload);
         } else {
-          existingItem.price = (existingItem.price / existingItem.count) * (existingItem.count - 1);
+          existingItem.price =
+            (existingItem.price / existingItem.count) *
+            (existingItem.count - 1);
           existingItem.count -= 1;
         }
       }

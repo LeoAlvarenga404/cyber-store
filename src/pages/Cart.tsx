@@ -11,7 +11,7 @@ export function Cart() {
       <div className="flex w-full gap-8">
         <div className="flex flex-col w-full">
           <h1 className="font-bold text-2xl mb-4">Shopping Cart</h1>
-          <div className="flex flex-col gap-4 overflow-auto h-[30rem] scrollbar-none">
+          <div className="flex flex-col gap-4 overflow-auto h-[40rem] scrollbar-none">
             {productCart.map((product) => (
               <div key={product.id} className="border-b pb-8">
                 <CartProducts

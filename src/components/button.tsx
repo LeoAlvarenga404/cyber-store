@@ -11,7 +11,7 @@ export function Button({ theme, ...props }: ButtonProps) {
       {...props}
       className={`${props.className} ${
         theme === "dark" ? "border-white hover:bg-white hover:text-black" : "bg-black border-black hover:bg-white hover:text-black"
-      } border border-white rounded-lg text-white z-10`}
+      } border border-white rounded-lg z-10`}
     >
       {props.children}
     </button>

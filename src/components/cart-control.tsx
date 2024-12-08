@@ -6,7 +6,7 @@ import { useCart } from "../redux/sliceCart";
 export function CartControl() {
   const productCart = useSelector(useCart);
 
-  const total = productCart.length;
+  const total = productCart.reduce((acc, product) => acc + product.count, 0);
 
   return (
     <Link to={"/cart"} className="relative">

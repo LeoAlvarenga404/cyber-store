@@ -4,7 +4,6 @@ import { FaCartPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/sliceCart";
 import { ModalAddCart } from "./modal-add-cart";
-
 export interface ProductDetailsProps {
   id: string;
   title: string;
@@ -39,6 +38,7 @@ export function ProductCard() {
       });
   }, []);
 
+
   const dispatch = useDispatch();
   return (
     <div className="max-w-7xl mx-auto mt-10">
@@ -64,7 +64,7 @@ export function ProductCard() {
                   </p>
                 </div>
                 <div className="flex justify-between items-center w-full mt-4">
-                  <Button theme="light" className="w-40 py-3">Buy Now</Button>
+                  <Button theme="light" className="w-40 py-3 text-white hover:border-black">Buy Now</Button>
                   <div className="flex">
                     <button
                       onClick={() => {
