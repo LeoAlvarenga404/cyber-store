@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useCart } from "../redux/sliceCart";
+import { CartProducts } from "../components/cart-products";
 
 export function Cart() {
   const productCart = useSelector(useCart);
@@ -11,14 +12,15 @@ export function Cart() {
           <h1 className="font-bold text-2xl">Shopping Cart</h1>
           {productCart.map((product) => (
             <div key={product.id}>
-              <img src={product.pictures[0].url} alt={product.title} />
-              <h2>{product.title}</h2>
-              <p>{product.price}</p>
-              <p>{product.count}</p>
-              
+              <CartProducts
+                id={product.id}
+                pictures={product.pictures}
+                price={product.price}
+                title={product.title}
+                count={product.count}
+              />
             </div>
           ))}
-          oi
         </div>
         <div className="p-4 w-50 border w-full">
           <h2>Order Summary</h2>
