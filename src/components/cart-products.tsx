@@ -1,11 +1,16 @@
 import { FaPlus, FaMinus, FaX } from "react-icons/fa6";
-import { CartItem } from "../redux/sliceCart";
 import { useDispatch } from "react-redux";
-import {addMoreItem, removeItem, removeFromCart} from '../redux/sliceCart'
+import { addMoreItem, removeItem, removeFromCart } from "../redux/sliceCart";
 
+interface CartItem {
+  title: string;
+  price: number;
+  pictures: { url: string }[];
+  id: string;
+  count: number;
+}
 
 export function CartProducts({ title, price, pictures, id, count }: CartItem) {
-
   const formattedPrice = price.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
@@ -33,7 +38,10 @@ export function CartProducts({ title, price, pictures, id, count }: CartItem) {
         </button>
       </div>
       <div>{formattedPrice}</div>
-      <button className="text-zinc-500" onClick={() => dispatch(removeFromCart(id))}>
+      <button
+        className="text-zinc-500"
+        onClick={() => dispatch(removeFromCart(id))}
+      >
         <FaX size={20} />
       </button>
     </div>
