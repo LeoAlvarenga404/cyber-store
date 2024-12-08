@@ -25,7 +25,7 @@ export function Header() {
           </nav>
           <div className="flex gap-5">
             <IoHeartOutline size={24} />
-            <CartControl qtd={12} />
+            <CartControl />
             <IoPersonOutline size={24} />
           </div>
         </div>

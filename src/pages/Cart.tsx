@@ -3,7 +3,7 @@ import { useCart } from "../redux/sliceCart";
 
 export function Cart() {
   const productCart = useSelector(useCart);
-  console.log(productCart)
+
   return (
     <div className="w-full max-w-7xl m-auto mt-20">
       <div className="flex w-full">
@@ -14,6 +14,7 @@ export function Cart() {
               <img src={product.pictures[0].url} alt={product.title} />
               <h2>{product.title}</h2>
               <p>{product.price}</p>
+              <p>{product.count}</p>
               
             </div>
           ))}
