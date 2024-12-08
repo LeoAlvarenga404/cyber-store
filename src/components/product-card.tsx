@@ -23,7 +23,7 @@ export function ProductCard() {
     fetch(`https://api.mercadolibre.com/sites/MLB/search?q=iphone`)
       .then((response) => response.json())
       .then((data) => {
-        const limitedProducts = data.results.slice(0, 8);
+        const limitedProducts = data.results.slice(8, 16);
         setProducts(limitedProducts);
 
         limitedProducts.forEach((product: { id: string }) => {
@@ -63,8 +63,8 @@ export function ProductCard() {
                     })}
                   </p>
                 </div>
-                <div className="flex justify-between items-center w-full">
-                  <Button theme="light">Buy Now</Button>
+                <div className="flex justify-between items-center w-full mt-4">
+                  <Button theme="light" className="w-40 py-3">Buy Now</Button>
                   <div className="flex">
                     <button
                       onClick={() => {

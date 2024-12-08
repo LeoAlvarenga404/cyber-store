@@ -17,7 +17,7 @@ export function Banner() {
           <p className="text-lg font-medium text-zinc-500">
             Created to change everything for the better. For everyone
           </p>
-          <Button theme="dark">Shop Now</Button>
+          <Button className="w-40 py-3" theme="dark">Shop Now</Button>
         </div>
         <div className=" pt-20">
           <img className="z-3 pointer-events-none" src={iphoneBanner} alt="Iphone 14 Pro" />
