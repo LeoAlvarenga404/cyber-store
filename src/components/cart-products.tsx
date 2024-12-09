@@ -1,7 +1,6 @@
 import { FaPlus, FaMinus, FaX } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { addMoreItem, removeItem, removeFromCart } from "../redux/sliceCart";
-
 interface CartItem {
   title: string;
   price: number;
@@ -19,6 +18,7 @@ export function CartProducts({ title, price, pictures, id, count }: CartItem) {
   });
 
   const dispatch = useDispatch();
+
   return (
     <div className="flex items-center gap-4">
       <img src={pictures[0].url} alt="" className="w-24 object-cover" />
