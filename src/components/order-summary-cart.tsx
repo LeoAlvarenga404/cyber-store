@@ -12,11 +12,16 @@ export function OrderSummaryCart() {
   });
 
   const tax = 0.025 * subTotal;
-  const shipping = 29;
+  let shipping = 29;
+
+  if(productCart.length === 0) {
+    shipping = 0;
+  }
+
   const total = subTotal + tax + shipping;
 
   return (
-    <div className="p-10">
+    <div className="p-10 w-full">
       <h2 className="font-bold text-xl">Order Summary</h2>
       <form className="mt-4 flex flex-col gap-4">
         <div>
@@ -40,7 +45,7 @@ export function OrderSummaryCart() {
             placeholder="Enter Card Number"
             className=" w-full border-zinc-300 border rounded-md p-5"
           />
-          <Button className="text-black bg-white border border-zinc-950 px-4 py-1 hover:bg-black hover:text-white absolute bottom-4 right-4">
+          <Button className="text-black bg-white border border-zinc-950 px-4 py-1 hover:bg-zinc-900 hover:text-white absolute bottom-4 right-4">
             Apply
           </Button>
         </div>
@@ -71,7 +76,7 @@ export function OrderSummaryCart() {
           </span>
         </div>
       </div>
-      <Button className="w-full py-4 text-white mt-5" theme="light">
+      <Button className="w-full py-4 text-white mt-5 border border-zinc-900"  theme="light">
         Checkout
       </Button>
     </div>

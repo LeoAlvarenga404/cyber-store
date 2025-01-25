@@ -1,6 +1,7 @@
 import { FaPlus, FaMinus, FaX } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { addMoreItem, removeItem, removeFromCart } from "../redux/sliceCart";
+import { Link } from "react-router-dom";
 interface CartItem {
   title: string;
   price: number;
@@ -21,7 +22,9 @@ export function CartProducts({ title, price, pictures, id, count }: CartItem) {
 
   return (
     <div className="flex items-center gap-4">
-      <img src={pictures[0].url} alt="" className="w-24 object-cover" />
+      <Link to={`/details/${id}`} className="w-32">
+        <img src={pictures[0].url} alt="" className=" object-cover" />
+      </Link>
       <div className="flex flex-col">
         <h2 className="font-medium text-lg">{title}</h2>
         <p className="text-zinc-500">{id}</p>
